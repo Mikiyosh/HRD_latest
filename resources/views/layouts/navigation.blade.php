@@ -17,18 +17,29 @@
           </x-nav-link>
         </div>
         <!-- 🔽 一覧ページへのリンクを追加 -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('goal.index')" :active="request()->routeIs('goal.index')">
-            {{ __('Index') }}
-          </x-nav-link>
-        </div>
-        <!-- 🔽 作成ページへのリンクを追加 -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('goal.create')" :active="request()->routeIs('goal.create')">
-            {{ __('Create') }}
+ 
+         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('action.create')" :active="request()->routeIs('action.create')">
+            {{ __('目標設定（業績項目）') }}
           </x-nav-link>
         </div>
 
+  
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('goal.create')" :active="request()->routeIs('goal.create')">
+            {{ __('目標設定（行動項目）') }}
+          </x-nav-link>
+        </div>
+
+
+ 
+
+        
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('goal.mypage')" :active="request()->routeIs('goal.mypage')">
+            {{ __('タイムライン') }}
+          </x-nav-link>
+        </div>
       </div>
 
       <!-- Settings Dropdown -->
@@ -95,6 +106,16 @@
         {{ __('Create') }}
       </x-responsive-nav-link>
     </div>
+    
+    <div class="pt-2 pb-3 space-y-1">
+      <x-responsive-nav-link :href="route('goal.mypage')" :active="request()->routeIs('goal.mypage')">
+        {{ __('Mypage') }}
+      </x-responsive-nav-link>
+    </div>
+    
+
+    
+    
 
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

@@ -4,8 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
-class Goal extends Model
+use App\Models\Pre;
+
+
+class Pre extends Model
 {
     use HasFactory;
   protected $guarded = [

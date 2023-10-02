@@ -18,38 +18,45 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($goals as $goal)
+              @foreach ($pres as $pre)
               <tr class="hover:bg-gray-lighter">
                 <td class="py-4 px-6 border-b border-gray-light dark:border-gray-600">
                 
                   
-                 <a href="{{ route('goal.show',$goal->id) }}">
+                 <a href="{{ route('pre.show',$pre->id) }}">
                 
                 
                 <div>
-                  <h2 class="text-left text-lg font-bold">リーダーシップ</h2>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$goal->leadership1}}</h3>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$goal->leadership2}}</h3>
+                    <h2 class="text-left text-lg font-bold">リーダーシップ</h2>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action1}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action2}}</h3>
                 </div>
                   
                 <div>
                   <h2 class="text-left text-lg font-bold">コミュニケーション</h2>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$goal->communication1}}</h3>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$goal->communication2}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action3}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action4}}</h3>
                 </div>
                 
                 <div>
                   <h2 class="text-left text-lg font-bold">問題解決力</h2>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$goal->issue1}}</h3>
-                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$goal->issue2}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action5}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action6}}</h3>
+                </div>
+            
+                <div>
+                  <h2 class="text-left text-lg font-bold">問題解決力</h2>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action7}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action8}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action9}}</h3>
                 </div>
 
                  </a>
  
-          <div class="flex items-center justify-end mt-4"> 
-              <div class="flex">
+                 
+                  <div class="flex">
                     <!-- 更新ボタン -->
-                    <form action="{{ route('goal.edit',$goal->id) }}" method="GET" class="text-left">
+                    <form pre="{{ route('pre.edit',$pre->id) }}" method="GET" class="text-left">
                       @csrf
                       <x-primary-button class="ml-3">
                         <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="gray">
@@ -57,15 +64,17 @@
                         </svg>
                       </x-primary-button>
                     </form>
-              </div>
-                
-
-<a href="{{ route('action.show', $action->id) }}">
-    <x-primary-button class="ml-3">
-        {{ __('行動目標を提出する') }}
-    </x-primary-button>
-</a>
-
+                  </div>
+                  
+            <div class="flex items-center justify-end mt-4">
+              <a href="{{ url()->previous() }}">
+                <x-secondary-button class="ml-3">
+                  {{ __('Back') }}
+                </x-primary-button>
+              </a>
+              <x-primary-button class="ml-3">
+                {{ __('Update') }}
+              </x-primary-button>
             </div>
                   
                 </td>
