@@ -47,28 +47,43 @@
                 </div>
               </a>
  
-                 
-          
+               
+                         <div class="flex items-center justify-end mt-4"> 
+              <div class="flex">
+                    <!-- 更新ボタン -->
+                    <form action="{{ route('goal.edit',$goal->id) }}" method="GET" class="text-left">
+                      @csrf
+                      <x-primary-button class="ml-3">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="gray">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                      </x-primary-button>
+                    </form>
+              </div>  
+
                   
                   
-<div class="flex items-center justify-end mt-4">
+          <div class="flex items-center justify-end mt-4"> 
+              <div class="flex">
+                    <!-- 更新ボタン -->
+                    <form goal="{{ route('action.edit',$action->id) }}" method="GET" class="text-left">
+                      @csrf
+                      <x-primary-button class="ml-3">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="gray">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                      </x-primary-button>
+                    </form>
+              </div>
+                
 
-
-<a href="{{ route('action.edit', $action->id) }}">
-    <x-primary-button class="ml-3">
-        {{ __('目標を修正する') }}
-    </x-primary-button>
-</a>
-
-              
 <a href="{{ route('action.show', $action->id) }}">
     <x-primary-button class="ml-3">
-        {{ __('業績目標を提出する') }}
+        {{ __('行動目標を提出する') }}
     </x-primary-button>
 </a>
 
-
-</div>
+            </div>
             </div>
             </td>
             </tr>

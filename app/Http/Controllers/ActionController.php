@@ -8,6 +8,7 @@ use App\Models\Action;
 use Auth;
 use App\Models\User;
 use App\Models\Pre;
+use App\Models\Goal;
 
 class ActionController extends Controller
 {
@@ -20,8 +21,13 @@ class ActionController extends Controller
         ->orderBy('updated_at', 'desc')
         ->take(1)
         ->get();
-  return response()->view('action.index',compact('actions'));
+    $goal = Goal::where('user_id', Auth::user()->id)->first();
+
+    return view('action.index', compact('actions', 'goal'));
 }
+
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -81,21 +87,18 @@ public function show($id)
      */
 
 
-public function edit(string $id)
-{
-    $action = Action::find($id);
-    $pre = Pre::where('user_id', Auth::user()->id)->first();
-
-    if (!$action || !$pre) {
-        return redirect()->back()->with('error', 'Data not found.');
-    }
-
-    return view('action.edit', [
-        'action' => $action,
-        'pre' => $pre
-    ]);
+ public function edit(string $id)
+    {
+  $pre = Pre::find($id);
+  $action = Action::find($id);
+  
+ if (!$pre || !$action) {
+    return redirect()->back()->with('error', 'Data not found.');
 }
 
+// データが存在する場合の処理
+return response()->view('action.edit', compact('action', 'pre'));
+}
 
 
     /**

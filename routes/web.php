@@ -32,14 +32,11 @@ Route::middleware('auth')->group(function () {
   Route::get('/action/mypage', [ActionController::class, 'mydata'])->name('action.mypage');
   Route::get('/pre/mypage', [PreController::class, 'mydata'])->name('pre.mypage');  
   
-  
+  Route::get('/goals/{id}/edit', [GoalController::class, 'edit'])->name('goal.edit'); 
+  Route::get('/actions/{id}/edit', [ActionController::class, 'edit'])->name('action.edit'); 
   Route::get('pre/{pre}', 'PreController@show')->name('pre.show');
-
-
-
- 
-
 });
+
 
 Route::get('/', function () {
     return view('welcome');
