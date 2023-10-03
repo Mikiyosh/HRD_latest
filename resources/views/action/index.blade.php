@@ -51,7 +51,7 @@
                          <div class="flex items-center justify-end mt-4"> 
               <div class="flex">
                     <!-- 更新ボタン -->
-                    <form action="{{ route('goal.edit',$goal->id) }}" method="GET" class="text-left">
+                    <form action="{{ route('action.edit',$action->id) }}" method="GET" class="text-left">
                       @csrf
                       <x-primary-button class="ml-3">
                         <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="gray">
