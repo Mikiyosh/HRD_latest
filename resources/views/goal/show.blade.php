@@ -7,8 +7,7 @@
     </h2>
   </x-slot>
 
-    
-
+  
   
   @foreach ($goals as $goal)
   <div class="py-12">
@@ -31,7 +30,7 @@
             
             <h2 class="text-left text-lg font-bold">コミュニケーション</h2>
             <div class="flex flex-col mb-4">
-            <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">80%目標：{{$goal->communication1}}</p>
+            <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">100%目標：{{$goal->communication1}}</p>
             </div>
             
             <div class="flex flex-col mb-4">
@@ -40,11 +39,11 @@
             
             <h2 class="text-left text-lg font-bold">問題解決力</h2>
             <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">80%目標：{{$goal->issue1}}</p>
+              <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">100%目標：{{$goal->issue1}}</p>
             </div>
             
             <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">80%目標：{{$goal->issue2}}</p>
+              <p class="mb-2 uppercase text-lg text-gray-800 dark:text-gray-200">100%目標：{{$goal->issue2}}</p>
             </div>
             
             </div>

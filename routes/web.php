@@ -56,8 +56,5 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('pre/{pre}', 'PreController@show')->name('pre.show');
-
-
 
 require __DIR__.'/auth.php';
