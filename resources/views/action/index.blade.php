@@ -51,19 +51,14 @@
           
                   
                   
-           <div class="flex items-center justify-end mt-4">
+<div class="flex items-center justify-end mt-4">
 
-<a href="{{ route('action.edit', $action->id) }}" class="text-left">
-    <x-primary-button class="ml-3 flex items-center justify-start">
-        修正する
-        <svg class="h-6 w-6 text-gray-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="gray">
-            ...
-        </svg>
+
+<a href="{{ route('action.edit', $action->id) }}">
+    <x-primary-button class="ml-3">
+        {{ __('目標を修正する') }}
     </x-primary-button>
 </a>
-
-
-
 
               
 <a href="{{ route('action.show', $action->id) }}">
@@ -73,7 +68,7 @@
 </a>
 
 
-            </div>
+</div>
             </div>
             </td>
             </tr>
