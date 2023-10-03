@@ -57,7 +57,7 @@
                         </svg>
                       </x-primary-button>
                     </form>
-              </div>
+          </div>
                 
 
 <a href="{{ route('action.show', $action->id) }}">

@@ -19,6 +19,8 @@ use App\Http\Controllers\PreController;
 */
 
 
+
+
 Route::middleware('auth')->group(function () {
     
   Route::resource('goal', GoalController::class);
@@ -31,12 +33,16 @@ Route::middleware('auth')->group(function () {
   Route::get('/goal/mypage', [GoalController::class, 'mydata'])->name('goal.mypage');
   Route::get('/action/mypage', [ActionController::class, 'mydata'])->name('action.mypage');
   Route::get('/pre/mypage', [PreController::class, 'mydata'])->name('pre.mypage');  
-  
-  Route::get('/goals/{id}/edit', [GoalController::class, 'edit'])->name('goal.edit'); 
-  Route::get('/actions/{id}/edit', [ActionController::class, 'edit'])->name('action.edit'); 
-  Route::get('pre/{pre}', 'PreController@show')->name('pre.show');
-});
+  Route::get('/actions/{id}/edit', [ActionController::class, 'edit'])->name('action.edit');
 
+  
+  Route::get('pre/{pre}', 'PreController@show')->name('pre.show');
+
+
+
+ 
+
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,6 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::get('pre/{pre}', 'PreController@show')->name('pre.show');
 
 
 

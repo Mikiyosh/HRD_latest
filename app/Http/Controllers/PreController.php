@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Pre;
+
 use Auth;
+
 use App\Models\User;
 use App\Models\Action;
-
 
 class PreController extends Controller
 {
