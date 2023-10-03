@@ -87,17 +87,10 @@ public function show($id)
      */
 
 
- public function edit(string $id)
+    public function edit(string $id)
     {
-  $pre = Pre::find($id);
   $action = Action::find($id);
-  
- if (!$pre || !$action) {
-    return redirect()->back()->with('error', 'Data not found.');
-}
-
-// データが存在する場合の処理
-return response()->view('action.edit', compact('action', 'pre'));
+  return response()->view('action.edit', compact('action'));
 }
 
 

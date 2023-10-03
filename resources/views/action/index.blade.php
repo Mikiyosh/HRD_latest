@@ -68,7 +68,7 @@
 
 <a href="{{ route('action.show', $action->id) }}">
     <x-primary-button class="ml-3">
-        {{ __('行動目標を提出する') }}
+        {{ __('業績目標を提出する') }}
     </x-primary-button>
 </a>
 

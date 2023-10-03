@@ -22,15 +22,25 @@ class PreController extends Controller
         ->orderBy('updated_at', 'desc')
         ->take(1)
         ->get();
-  return response()->view('pre.index',compact('pres'));
+        
+    return view('pre.index', compact('pres',));
 }
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-    return response()->view('pre.create');
-    }
+public function create()
+{
+    // ログインしているユーザーの最新の Pre レコードを取得
+    $pres = Pre::where('user_id', Auth::user()->id)
+        ->orderBy('updated_at', 'desc')
+        ->take(1)
+        ->get();
+        
+    return view('pre.index', compact('pres',));
+}
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -73,7 +83,7 @@ public function store(Request $request)
 public function show($id)
 {
   $pre = Pre::find($id);
-  return response()->view('pre.show', compact('pre'));
+  return response()->view('pre.create', compact('pre'));
 }
 
 

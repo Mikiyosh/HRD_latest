@@ -1,101 +1,60 @@
-<!-- resources/views/tweet/create.blade.php -->
+<!-- resources/views/tweet/index.blade.php -->
 
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('目標設定を行いましょう＿業績目標') }}
+      {{ __('目標の確認と修正') }}
     </h2>
   </x-slot>
 
   <div class="py-12">
-    
-    <div class="max-w-7xl mx-auto sm:w-8/12 md:w-3/4 lg:w-2/3">
-      <div>
-        <div class="p-6 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800 ">
-          @include('common.errors')
-         
-          <form class="mb-6" pre="{{ route('pre.store') }}" method="POST">
-            @csrf
-          
-          <div class="mb-2">
-             <h2 class="text-lg font-bold">全社目標</h2>
-          </div>
-           
-          <div class="bg-white p-6 rounded-lg shadow-lg mb-3">
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action1" :value="__('①')" />
-              <x-text-input id="action1" class="block mt-1 w-full" type="text" name="action1" :value="old('action1')" required autofocus />
-              <x-input-error :messages="$errors->get('action1')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action2" :value="__('②')" />
-              <x-text-input id="action2" class="block mt-1 w-full" type="text" name="action2" :value="old('action2')" required autofocus />
-              <x-input-error :messages="$errors->get('action2')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action3" :value="__('③')" />
-              <x-text-input id="action3" class="block mt-1 w-full" type="text" name="action3" :value="old('action3')" required autofocus />
-              <x-input-error :messages="$errors->get('action3')" class="mt-2" />
-            </div>
+    <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
+      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="p-6 bg-white dark:bg-gray-800 border-b border-grey-200 dark:border-gray-800">
+          <table class="text-center w-full border-collapse">
+            <thead>
+              <tr>
+                <th class="py-4 px-6 bg-gray-lightest dark:bg-gray-darkest font-bold uppercase text-lg text-gray-dark dark:text-gray-200 border-b border-grey-light dark:border-grey-dark">今期の目標</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($pres as $pre)
+              <tr class="hover:bg-gray-lighter">
+                <td class="py-4 px-6 border-b border-gray-light dark:border-gray-600">
+                
+                  
+                 <a href="{{ route('pre.show',$pre->id) }}">
+                
+                
+                <div>
+                  <h2 class="text-left text-lg font-bold">リーダーシップ</h2>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action1}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action2}}</h3>
+                </div>
+                  
+                <div>
+                  <h2 class="text-left text-lg font-bold">コミュニケーション</h2>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action3}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action4}}</h3>
+                </div>
+                
+                <div>
+                  <h2 class="text-left text-lg font-bold">問題解決力</h2>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">100%目標：{{$pre->action5}}</h3>
+                  <h3 class="text-left text-lg text-gray-dark dark:text-gray-200">80%目標：{{$pre->action6}}</h3>
+                </div>
 
-          </div>
-          
-
-          <div class="mb-2">
-             <h2 class="text-lg font-bold">部門目標</h2>
-          </div>
-            
-          <div class="bg-white p-6 rounded-lg shadow-lg mb-3">
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action4" :value="__('①')" />
-              <x-text-input id="action4" class="block mt-1 w-full" type="text" name="action4" :value="old('action4')" required autofocus />
-              <x-input-error :messages="$errors->get('action4')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action5" :value="__('②')" />
-              <x-text-input id="action5" class="block mt-1 w-full" type="text" name="action5" :value="old('action5')" required autofocus />
-              <x-input-error :messages="$errors->get('action5')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action6" :value="__('③')" />
-              <x-text-input id="action6" class="block mt-1 w-full" type="text" name="action6" :value="old('action6')" required autofocus />
-              <x-input-error :messages="$errors->get('action6')" class="mt-2" />
-            </div>
-          </div>
+                 </a>
+ 
 
 
-          <div class="mb-2">
-             <h2 class="text-lg font-bold">個人目標</h2>
-          </div>
-          
-          <div class="bg-white p-6 rounded-lg shadow-lg mb-3">
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action7" :value="__('①')" />
-              <x-text-input id="action7" class="block mt-1 w-full" type="text" name="action7" :value="old('action7')" required autofocus />
-              <x-input-error :messages="$errors->get('action7')" class="mt-2" />
             </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action8" :value="__('②')" />
-              <x-text-input id="action8" class="block mt-1 w-full" type="text" name="action8" :value="old('action8')" required autofocus />
-              <x-input-error :messages="$errors->get('action8')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-4">
-              <x-input-label for="action9" :value="__('③')" />
-              <x-text-input id="action9" class="block mt-1 w-full" type="text" name="action9" :value="old('action9')" required autofocus />
-              <x-input-error :messages="$errors->get('action9')" class="mt-2" />
-            </div>
-          </div>
-            
-
-            <div class="flex items-center justify-end mt-4">
-              <x-primary-button class="ml-3">
-                {{ __('次へ') }}
-              </x-primary-button>
-            </div>
-          </form>
-          
-          
-          
+                  
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
